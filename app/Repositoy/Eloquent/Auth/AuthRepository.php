@@ -41,20 +41,24 @@ class AuthRepository implements AuthRepositoryInterface
       throw new UnAuthorizedException('Credenciales incorrectas');
     }
 
-    $status = $this->_modelClient->where('email', $data['email'])->first();
+    $user = $this->_modelClient->where('email', $data['email'])->first();
 
-    if ($status->status == false) {
+    if ($user->status == false) {
       throw new BadRequestException('Por favor, verifica tu correo electrónico.');
     }
 
-    return $this->respondWithToken($token, $status);
+    return $this->respondWithToken($token, $user);
   }
 
-  protected function respondWithToken($token, $status)
+  protected function respondWithToken($token, $user)
   {
     return response()->json([
       'access_token' => $token,
-      'user' => $status,
+      'user' => [
+        'name' => $user->name,
+        'email' => $user->email,
+        'role' => $user->role
+      ],
       'expires_in' => Auth::factory()->getTTL() * 60
     ]);
   }
