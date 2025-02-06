@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Product\BrandController;
+use App\Http\Controllers\Product\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function () {
@@ -18,4 +19,9 @@ Route::prefix('brands')->group(function () {
   Route::middleware('jwt')->group(function () {
     Route::post('create', [BrandController::class, 'createBrand']);
   });
+  Route::get('', [BrandController::class, 'getProducts']);
+});
+
+Route::prefix('category')->group(function () {
+  Route::get('', [CategoryController::class, 'getCategories']);
 });

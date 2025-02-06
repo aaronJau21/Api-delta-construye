@@ -3,8 +3,11 @@
 namespace App\Repositoy\Repository\Product;
 
 use App\Models\Brand;
+use Illuminate\Database\Eloquent\Collection;
 
 interface BrandRepositoryInterface
 {
   public function createBrand(array $data): Brand;
+  public function getBrands(): Collection;
+  public function getBrandById(int $id): Brand | null;
 }
