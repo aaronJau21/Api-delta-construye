@@ -14,7 +14,7 @@ class Product extends Model
     'stock',
     'price',
     'status',
-    'skup',
+    'sku',
     'porcentage_discount',
     'views'
   ];

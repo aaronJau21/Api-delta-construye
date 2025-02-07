@@ -18,7 +18,7 @@ return new class extends Migration
       $table->integer('stock')->default(0);
       $table->decimal('price', 10, 2)->default(0.00);
       $table->boolean('status')->default(true);
-      $table->string('skup')->unique();
+      $table->string('sku')->unique();
       $table->integer('porcentage_discount')->default(0);
       $table->integer('views')->default(0);
       $table->timestamps();
