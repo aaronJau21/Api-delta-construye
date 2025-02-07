@@ -21,4 +21,9 @@ class ProductController extends Controller
     return response()->json($products);
   }
 
+  public function getProductBySku(string $sku): JsonResponse
+  {
+    $product = $this->_repository->getProductBySku($sku);
+    return response()->json($product);
+  }
 }

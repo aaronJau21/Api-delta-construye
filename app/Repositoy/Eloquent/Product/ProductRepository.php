@@ -19,4 +19,9 @@ class ProductRepository implements ProductRepositoryInterface
   {
     return $this->_model->paginate(10);
   }
+
+  public function getProductBySku(string $sku): Product
+  {
+    return $this->_model->where('sku', $sku)->first();
+  }
 }
