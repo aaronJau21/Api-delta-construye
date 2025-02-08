@@ -17,11 +17,11 @@ class ProductRepository implements ProductRepositoryInterface
 
   public function getAllProducts(): LengthAwarePaginator
   {
-    return $this->_model->paginate(10);
+    return $this->_model->orderBy('id', 'ASC')->paginate(20);
   }
 
   public function getProductBySku(string $sku): Product
   {
-    return $this->_model->where('sku', $sku)->first();
+    return $this->_model->with(['categories', 'brands'])->where('sku', $sku)->first();
   }
 }
