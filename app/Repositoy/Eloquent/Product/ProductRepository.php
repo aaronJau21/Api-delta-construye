@@ -24,4 +24,9 @@ class ProductRepository implements ProductRepositoryInterface
   {
     return $this->_model->with(['categories', 'brands'])->where('sku', $sku)->first();
   }
+
+  public function getAllProductsNoPrice(): LengthAwarePaginator
+  {
+    return $this->_model->where('price', '0.00')->orderBy('id', 'ASC')->paginate(20);
+  }
 }

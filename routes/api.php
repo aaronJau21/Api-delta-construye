@@ -29,4 +29,5 @@ Route::prefix('category')->group(function () {
 Route::prefix('product')->group(function () {
   Route::get('', [ProductController::class, 'getAllProducts']);
   Route::get('/{sku}', [ProductController::class, 'getProductBySku']);
+  Route::get('/get/no-price', [ProductController::class, 'getAllProductsNoPrice']);
 });

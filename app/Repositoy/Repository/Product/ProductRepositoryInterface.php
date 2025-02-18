@@ -10,4 +10,5 @@ interface ProductRepositoryInterface
 {
   public function getAllProducts(): LengthAwarePaginator;
   public function getProductBySku(string $sku): Product;
+  public function getAllProductsNoPrice(): LengthAwarePaginator;
 }

@@ -26,4 +26,10 @@ class ProductController extends Controller
     $product = $this->_repository->getProductBySku($sku);
     return response()->json($product);
   }
+
+  public function getAllProductsNoPrice(): JsonResponse
+  {
+    $products = $this->_repository->getAllProductsNoPrice();
+    return response()->json($products);
+  }
 }
