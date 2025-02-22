@@ -14,4 +14,9 @@ class Brand extends Model
   {
     return $this->belongsToMany(Category::class, 'brand_categories', 'brand_id', 'category_id');
   }
+
+  protected $hidden = [
+    'updated_at',
+    'created_at',
+  ];
 }

@@ -31,7 +31,16 @@ class BrandController extends Controller
     $brands = $this->_repository->getBrands();
 
     return response()->json([
-      'data' => $brands
+      'brands' => $brands
+    ]);
+  }
+
+  public function getBrandsForPage()
+  {
+    $brands = $this->_repository->getBrandsForPage();
+
+    return response()->json([
+      'brands' => $brands
     ]);
   }
 }

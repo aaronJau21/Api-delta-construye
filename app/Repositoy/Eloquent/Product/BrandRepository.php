@@ -32,4 +32,9 @@ class BrandRepository implements BrandRepositoryInterface
 
     return $brand;
   }
+
+  public function getBrandsForPage(): LengthAwarePaginator
+  {
+    return $this->_model->orderBy('id', 'ASC')->paginate(15);
+  }
 }

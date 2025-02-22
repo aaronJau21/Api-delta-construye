@@ -19,8 +19,9 @@ Route::prefix('client')->group(function () {
 Route::prefix('brands')->group(function () {
   Route::middleware('jwt')->group(function () {
     Route::post('create', [BrandController::class, 'createBrand']);
+    Route::get('', [BrandController::class, 'getBrandsForPage']);
   });
-  Route::get('', [BrandController::class, 'getProducts']);
+  Route::get('public', [BrandController::class, 'getProducts']);
 });
 
 Route::prefix('category')->group(function () {
