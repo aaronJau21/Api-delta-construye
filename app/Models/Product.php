@@ -42,4 +42,9 @@ class Product extends Model
   {
     return $this->hasManyThrough(Category::class, BrandCategoryProduct::class, 'product_id', 'id', 'id', 'category_id');
   }
+
+  public function productImages(): HasMany
+  {
+    return $this->hasMany(ProductImage::class);
+  }
 }

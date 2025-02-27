@@ -17,7 +17,7 @@ class ProductRepository implements ProductRepositoryInterface
 
   public function getAllProducts(): LengthAwarePaginator
   {
-    return $this->_model->orderBy('id', 'ASC')->paginate(20);
+    return $this->_model->with('productImages')->orderBy('id', 'ASC')->paginate(20);
   }
 
   public function getProductBySku(string $sku): Product
