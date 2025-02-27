@@ -66,7 +66,7 @@ class BrandSeed extends Seeder
     ]);
     Brand::create([
       'name' => 'Plastica',
-      'logo' => 'https://d9pq5ako66lc4.cloudfront.net/brands/logo[1].png',
+      'logo' => 'https://d9pq5ako66lc4.cloudfront.net/brands/image[1].png',
       'status' => true
     ]);
     Brand::create([
