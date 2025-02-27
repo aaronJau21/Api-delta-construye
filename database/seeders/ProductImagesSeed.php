@@ -205,7 +205,7 @@ class ProductImagesSeed extends Seeder
       'product_id' => 46,
     ]);
     ProductImage::create([
-      'image' => 'https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/sodimacPE/402821X_01/w=1500,h=1500,fit=pad',
+      'image' => 'https://lacasadelpintor.pe/cdn/shop/products/american-color-satinado-original-balde-de-20-litros-D_NQ_NP_971910-MPE29665617237_032019-Q_46b2d39b-f8f8-4324-8867-1449faca4a34_1024x1024@2x.jpg?v=1621545133',
       'product_id' => 47,
     ]);
   }
