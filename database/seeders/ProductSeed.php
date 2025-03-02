@@ -293,5 +293,29 @@ class ProductSeed extends Seeder
       'price' => '480.00',
       'sku' => 'american-colors-satinado-16-ltrs'
     ]);
+
+    Product::create([
+      'name' => 'PANEL LED 60X60 LUZ 6500K OPALUX',
+      'price' => '92',
+      'sku' => 'PANEL-LED-60X60-LUZ-6500K-OPALUX'
+    ]);
+
+    Product::create([
+      'name' => 'TUBERIA CONDUIT FLEXIBL METALICO C/FORRO 1/2 EXTRAFLEXIBLE',
+      'price' => '2.53',
+      'sku' => 'TUBERIA-CONDUIT-FLEXIBL-METALICO-1/2-EXTRAFLEXIBLE'
+    ]);
+
+    Product::create([
+      'name' => 'CONECTOR RECTO HERMETICO AMARILLO LIQUID TIGHT 1/2 UL HYLTON',
+      'price' => '3.22',
+      'sku' => 'CONECTOR-RECTO-HERMETICO-AMARILLO-LIQUID-TIGHT-1/2-UL-HYLTON'
+    ]);
+
+    Product::create([
+      'name' => 'CABLE NH - 90 6 MM LIBRE HALOGENO INDECO NEGRO (RLLX100MT)',
+      'price' => '5.17',
+      'sku' => 'CABLE-NH-90-6-MM-LIBRE-HALOGENO-INDECO-NEGRO'
+    ]);
   }
 }
