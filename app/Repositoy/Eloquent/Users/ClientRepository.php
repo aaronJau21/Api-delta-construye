@@ -25,4 +25,11 @@ class ClientRepository implements ClientRepositoryInterface
 
     return $create;
   }
+
+  public function getClient($name)
+  {
+    $client = $this->_model->where('name', $name)->first();
+
+    return $client;
+  }
 }

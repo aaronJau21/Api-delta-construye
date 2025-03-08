@@ -14,6 +14,7 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('client')->group(function () {
   Route::post('create', [ClientController::class, 'create']);
+  Route::get('getClient/{name}', [ClientController::class, 'getClient']);
 });
 
 Route::prefix('brands')->group(function () {

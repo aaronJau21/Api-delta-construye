@@ -20,4 +20,10 @@ class ClientController extends Controller
     $data = $request->validated();
     return $this->_repository->create($data);
   }
+
+  public function getClient($name)
+  {
+    $data = $this->_repository->getClient($name);
+    return response()->json($data);
+  }
 }
