@@ -5,6 +5,7 @@ use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Product\BrandController;
 use App\Http\Controllers\Product\CategoryController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Shopping\ShoppingController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function () {
@@ -15,6 +16,11 @@ Route::prefix('auth')->group(function () {
 Route::prefix('client')->group(function () {
   Route::post('create', [ClientController::class, 'create']);
   Route::get('getClient/{name}', [ClientController::class, 'getClient']);
+  Route::patch('update/{name}', [ClientController::class, 'updateClient']);
+  Route::prefix('shopping')->group(function () {
+    Route::post('create', [ShoppingController::class, 'create']);
+    Route::get('getShopping/{clientId}', [ClientController::class, 'getShopping']);
+  });
 });
 
 Route::prefix('brands')->group(function () {

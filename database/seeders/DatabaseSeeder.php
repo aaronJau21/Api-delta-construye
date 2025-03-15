@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
       CategorySeed::class,
       BrandSeed::class,
       BrandCategorySeed::class,
-
     ]);
   }
 }

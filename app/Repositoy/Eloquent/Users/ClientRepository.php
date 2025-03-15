@@ -14,7 +14,7 @@ class ClientRepository implements ClientRepositoryInterface
     $this->_model = $client;
   }
 
-  public function create(array $data)
+  public function create(array $data): Client
   {
 
     $existClient = $this->_model->where('email', $data['email'])->first();
@@ -26,10 +26,28 @@ class ClientRepository implements ClientRepositoryInterface
     return $create;
   }
 
-  public function getClient($name)
+  public function getClient(string $name): Client
   {
     $client = $this->_model->where('name', $name)->first();
 
+
+    if (!$client) {
+      throw new BadRequestException('Cliente no encontrado');
+    }
+
     return $client;
+  }
+
+  public function updateClient(string $name, array $data): Client
+  {
+    $client = $this->getClient($name);
+
+    if (!$client) {
+      throw new BadRequestException('Cliente no encontrado');
+    }
+
+    $client->update($data);
+
+    return $client->fresh();
   }
 }
