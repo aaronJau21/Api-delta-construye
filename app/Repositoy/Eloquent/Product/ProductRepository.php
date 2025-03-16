@@ -22,7 +22,7 @@ class ProductRepository implements ProductRepositoryInterface
 
   public function getProductBySku(string $sku): Product
   {
-    return $this->_model->with(['categories', 'brands'])->where('sku', $sku)->first();
+    return $this->_model->with(['categories', 'brands', 'productImages'])->where('id', $sku)->first();
   }
 
   public function getAllProductsNoPrice(): LengthAwarePaginator

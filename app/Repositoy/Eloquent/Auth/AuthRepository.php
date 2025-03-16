@@ -57,7 +57,7 @@ class AuthRepository implements AuthRepositoryInterface
       'user' => [
         'name' => $user->name,
         'email' => $user->email,
-        'role' => $user->role
+        'id' => $user->id
       ],
       'expires_in' => Auth::factory()->getTTL() * 60
     ]);
