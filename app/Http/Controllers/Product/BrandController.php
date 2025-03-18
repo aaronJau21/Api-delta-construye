@@ -43,4 +43,13 @@ class BrandController extends Controller
       'brands' => $brands
     ]);
   }
+
+  public function getBrandForCategory(string $id)
+  {
+    $brands = $this->_repository->getBrandForCategory($id);
+
+    return response()->json([
+      'brands' => $brands
+    ]);
+  }
 }

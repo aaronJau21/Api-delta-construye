@@ -29,6 +29,7 @@ Route::prefix('brands')->group(function () {
     Route::get('', [BrandController::class, 'getBrandsForPage']);
   });
   Route::get('public', [BrandController::class, 'getProducts']);
+  Route::get('/category/{id}', [BrandController::class, 'getBrandForCategory']);
 });
 
 Route::prefix('category')->group(function () {

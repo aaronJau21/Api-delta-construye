@@ -12,4 +12,5 @@ interface BrandRepositoryInterface
   public function getBrands(): Collection;
   public function getBrandById(int $id): Brand | null;
   public function getBrandsForPage(): LengthAwarePaginator;
+  public function getBrandForCategory(string $id);
 }

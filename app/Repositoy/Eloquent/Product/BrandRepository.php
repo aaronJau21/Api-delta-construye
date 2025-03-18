@@ -3,6 +3,7 @@
 namespace App\Repositoy\Eloquent\Product;
 
 use App\Models\Brand;
+use App\Models\BrandCategory;
 use App\Repositoy\Repository\Product\BrandRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
@@ -10,9 +11,11 @@ use Illuminate\Database\Eloquent\Collection;
 class BrandRepository implements BrandRepositoryInterface
 {
   protected $_model;
-  public function __construct(Brand $model)
+  protected $_modelBrandCategory;
+  public function __construct(Brand $model, BrandCategory $modelBrandCategory)
   {
     $this->_model = $model;
+    $this->_modelBrandCategory = $modelBrandCategory;
   }
 
   public function createBrand(array $data): Brand
@@ -23,6 +26,7 @@ class BrandRepository implements BrandRepositoryInterface
   public function getBrands(): Collection
   {
     // return $this->_model->paginate(10);
+    // return $this->_model->select(['id', 'name'])->with('categories:id,name')->get();
     return $this->_model->all();
   }
 
@@ -36,5 +40,14 @@ class BrandRepository implements BrandRepositoryInterface
   public function getBrandsForPage(): LengthAwarePaginator
   {
     return $this->_model->orderBy('id', 'ASC')->paginate(15);
+  }
+
+  public function getBrandForCategory(string $id)
+  {
+    if ($id == '0') {
+      return $this->_modelBrandCategory->with(['brand', 'category'])->get();
+    }
+
+    return $this->_modelBrandCategory->with(['brand', 'category'])->where('category_id', $id)->get();
   }
 }
