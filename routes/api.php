@@ -29,7 +29,7 @@ Route::prefix('brands')->group(function () {
     Route::get('', [BrandController::class, 'getBrandsForPage']);
   });
   Route::get('public', [BrandController::class, 'getProducts']);
-  Route::get('/category/{id}', [BrandController::class, 'getBrandForCategory']);
+  Route::get('category/{id}', [BrandController::class, 'getBrandForCategory']);
 });
 
 Route::prefix('category')->group(function () {
@@ -39,4 +39,16 @@ Route::prefix('product')->group(function () {
   Route::get('', [ProductController::class, 'getAllProducts']);
   Route::get('/{sku}', [ProductController::class, 'getProductBySku']);
   Route::get('/get/no-price', [ProductController::class, 'getAllProductsNoPrice']);
+});
+
+// Sistema
+Route::prefix('sistema')->middleware('jwt')->group(function () {
+
+  // Category
+  Route::prefix('cateogory')->group(function () {
+    Route::get('', [CategoryController::class, 'getCategoriesSistem']);
+  });
+
+  // Products 
+  Route::prefix('products')->group(function () {});
 });
