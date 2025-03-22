@@ -43,9 +43,9 @@ class AuthRepository implements AuthRepositoryInterface
 
     $user = $this->_modelClient->where('email', $data['email'])->first();
 
-    if ($user->status == false) {
-      throw new BadRequestException('Por favor, verifica tu correo electrónico.');
-    }
+    // if ($user->status == false) {
+    //   throw new BadRequestException('Por favor, verifica tu correo electrónico.');
+    // }
 
     return $this->respondWithToken($token, $user);
   }
