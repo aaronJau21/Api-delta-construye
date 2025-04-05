@@ -33,6 +33,7 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    // Nuevo
     public function getProductByName(string $name): JsonResponse
     {
         $product = $this->_repository->getProductByName($name);
