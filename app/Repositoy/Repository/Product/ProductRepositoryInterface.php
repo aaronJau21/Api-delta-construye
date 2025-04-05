@@ -10,5 +10,6 @@ interface ProductRepositoryInterface
 {
   public function getAllProducts(): LengthAwarePaginator;
   public function getProductBySku(string $sku): Product;
+  public function getProductByName(string $name);
   public function getAllProductsNoPrice(): LengthAwarePaginator;
 }
